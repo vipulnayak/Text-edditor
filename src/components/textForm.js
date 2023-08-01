@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 
-
-export default function textForm(props) {
+export default function TextForm(props) {
     const handleUpClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText)
@@ -24,22 +23,21 @@ export default function textForm(props) {
         setText(event.target.value) 
     }
 
-    // Credits: A
+    
     const handleCopy = () => {
         navigator.clipboard.writeText(text); 
         props.showAlert("Copied to Clipboard!", "success");
     }
 
-    // Credits: Coding Wala
+    
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
         props.showAlert("Extra spaces removed!", "success");
     }
 
-    const [text, setText] = useState(''); 
-    // text = "new text"; // Wrong way to change the state
-    // setText("new text"); // Correct way to change the state
+    const[text, setText] =useState(''); 
+
     return (
         <>
         <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}> 
